@@ -13,6 +13,7 @@ import './screens/products_details.dart';
 import './screens/products_overview.dart';
 import './screens/splash_screen.dart';
 import './screens/user_products.dart';
+import 'helpers/custom_route.dart';
 
 void main() {
   runApp(const MyApp());
@@ -46,7 +47,13 @@ class MyApp extends StatelessWidget {
           builder: (ctx, auth, _) => MaterialApp(
             debugShowCheckedModeBanner: false,
             title: 'State Management',
-            theme: ThemeData(primarySwatch: Colors.purple, fontFamily: "Lato"),
+            theme: ThemeData(
+                primarySwatch: Colors.purple,
+                fontFamily: "Lato",
+                pageTransitionsTheme: PageTransitionsTheme(builders: {
+                  TargetPlatform.android: CustomPageTransitionBuilder(),
+                  TargetPlatform.iOS: CustomPageTransitionBuilder(),
+                })),
             home: auth.isAuth
                 ? const ProductsOverview()
                 : FutureBuilder(

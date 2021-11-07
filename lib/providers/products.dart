@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
+
 import '../models/http_exception.dart';
 import '../providers/product.dart';
 
